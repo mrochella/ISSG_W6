@@ -12,11 +12,11 @@ io.on("connection", (socket) => {
   });
 
   socket.on("message", (data) => {
-    let { username, message } = data;
+    let { username, message, hash  } = data;
     console.log(`Receiving message from ${username}: ${message}`);
 
     message = message + " (modified by server)";
-    io.emit("message", { username, message });
+    io.emit("message", { username, message, hash });
   });
 });
 
